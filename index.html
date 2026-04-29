@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -14,7 +15,17 @@ body{
   color:white;
 }
 
-/* ⭐ bintang */
+/* ⭐ background layer */
+.bg {
+  position:fixed;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  z-index:0;
+  pointer-events:none; /* 🔥 semua background gak bisa blok klik */
+}
+
+/* bintang */
 .star{
   position:absolute;
   width:2px;
@@ -22,14 +33,13 @@ body{
   background:white;
   opacity:0.8;
   animation:twinkle 2s infinite alternate;
-  pointer-events:none;
 }
 @keyframes twinkle{
   from{opacity:0.2;}
   to{opacity:1;}
 }
 
-/* 🎞️ slide */
+/* slide */
 .slide{
   width:100vw;
   height:100vh;
@@ -37,28 +47,27 @@ body{
   justify-content:center;
   align-items:center;
   position:absolute;
-  transition:1s;
+  transition:0.8s;
   opacity:0;
-  transform:scale(1.1);
+  transform:translateX(100%);
   z-index:2;
 }
 .active{
   opacity:1;
-  transform:scale(1);
+  transform:translateX(0);
 }
 
-/* 💎 card */
+/* card */
 .card{
   background:rgba(255,255,255,0.05);
   backdrop-filter:blur(20px);
   padding:25px;
   border-radius:25px;
   text-align:center;
-  box-shadow:0 0 40px rgba(124,58,237,0.3);
   max-width:350px;
 }
 
-/* 📸 gallery */
+/* gallery */
 .gallery{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -72,26 +81,22 @@ body{
   border-radius:15px;
 }
 
-/* 📷 single */
+/* foto */
 img.single{
   width:260px;
   border-radius:20px;
   margin:15px 0;
 }
 
-/* ✍️ text */
+/* teks */
 h1{
-  font-size:24px;
   background:linear-gradient(90deg,#a78bfa,#f472b6);
   -webkit-background-clip:text;
   color:transparent;
 }
-p{
-  font-size:14px;
-  line-height:1.7;
-}
+p{line-height:1.6;}
 
-/* 🔘 button */
+/* tombol (🔥 paling atas) */
 .btn{
   margin-top:15px;
   padding:10px 20px;
@@ -100,24 +105,22 @@ p{
   border-radius:20px;
   color:white;
   cursor:pointer;
+  position:relative;
+  z-index:10;
 }
 </style>
 </head>
 
 <body>
 
+<!-- background -->
+<div class="bg" id="bg"></div>
+
 <!-- SLIDE 1 -->
 <div class="slide active">
   <div class="card">
     <h1>🎂 Happy Birthday</h1>
-    <p>
-    Di hari spesial kamu ini… aku cuma mau bilang,  
-    kehadiran kamu di hidup aku itu bukan hal biasa.  
-
-    Dari sekian banyak kemungkinan di dunia ini,  
-    aku dipertemukan sama kamu…  
-    dan itu jadi salah satu hal terbaik yang pernah aku punya 💖
-    </p>
+    <p>Kehadiran kamu di hidup aku itu bukan hal biasa 💖</p>
     <button class="btn" onclick="next()">Next</button>
   </div>
 </div>
@@ -126,20 +129,12 @@ p{
 <div class="slide">
   <div class="card">
     <h1>Awal Kita</h1>
-
     <div class="gallery">
       <img src="foto1.jpg">
       <img src="foto2.jpg">
       <img src="foto3.jpg">
       <img src="foto4.jpg">
     </div>
-
-    <p>
-    Aku masih inget awal kita kenal… semuanya biasa aja.  
-    Tapi makin hari, kamu jadi seseorang yang aku tunggu,  
-    yang selalu bikin hari aku terasa lebih ringan 💕
-    </p>
-
     <button class="btn" onclick="next()">Next</button>
   </div>
 </div>
@@ -147,18 +142,8 @@ p{
 <!-- SLIDE 3 -->
 <div class="slide">
   <div class="card">
-    <h1>Momen Kita</h1>
-
+    <h1>Momen</h1>
     <img src="foto1.jpg" class="single">
-
-    <p>
-    Setiap momen sama kamu mungkin sederhana…  
-    tapi buat aku semuanya punya arti.  
-
-    Aku gak butuh hal yang sempurna,  
-    selama itu sama kamu, semuanya udah cukup 💖
-    </p>
-
     <button class="btn" onclick="next()">Next</button>
   </div>
 </div>
@@ -166,21 +151,8 @@ p{
 <!-- SLIDE 4 -->
 <div class="slide">
   <div class="card">
-    <h1>Perasaan Aku</h1>
-
+    <h1>Perasaan</h1>
     <img src="foto2.jpg" class="single">
-
-    <p>
-    Kalau boleh jujur… aku takut kehilangan kamu.  
-
-    Bukan karena aku lemah,  
-    tapi karena kamu sudah jadi bagian hidup aku.  
-
-    Kalau suatu hari kamu capek,  
-    aku harap kamu ingat satu hal…  
-    kamu punya aku 💔
-    </p>
-
     <button class="btn" onclick="next()">Next</button>
   </div>
 </div>
@@ -188,23 +160,8 @@ p{
 <!-- SLIDE 5 -->
 <div class="slide">
   <div class="card">
-    <h1>Selamat Ulang Tahun</h1>
-
+    <h1>Selamat Ulang Tahun 💖</h1>
     <img src="foto3.jpg" class="single">
-
-    <p>
-    Selamat ulang tahun ya…  
-
-    Terima kasih sudah hadir di hidup aku,  
-    terima kasih sudah jadi seseorang yang berarti.  
-
-    Semoga semua hal baik datang ke kamu,  
-    dan kalau aku boleh minta satu hal…  
-    aku cuma ingin tetap ada di samping kamu 💖  
-
-    Aku sayang kamu.
-    </p>
-
     <button class="btn" onclick="restart()">Ulang</button>
   </div>
 </div>
@@ -226,16 +183,15 @@ function restart(){
   slides[current].classList.add("active");
 }
 
-/* ⭐ generate bintang */
-function createStar(){
-  const s = document.createElement("div");
-  s.classList.add("star");
-  s.style.left = Math.random()*100+"vw";
-  s.style.top = Math.random()*100+"vh";
-  s.style.animationDuration = (1 + Math.random()*2)+"s";
-  document.body.appendChild(s);
+/* ⭐ generate bintang di background layer */
+const bg = document.getElementById("bg");
+for(let i=0;i<80;i++){
+  let s = document.createElement("div");
+  s.className="star";
+  s.style.left=Math.random()*100+"vw";
+  s.style.top=Math.random()*100+"vh";
+  bg.appendChild(s);
 }
-for(let i=0;i<80;i++){ createStar(); }
 </script>
 
 </body>
