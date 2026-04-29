@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -11,8 +11,19 @@ body {
   margin:0;
   font-family:'Segoe UI';
   overflow:hidden;
+  background: linear-gradient(-45deg, #1e1b4b, #312e81, #7c3aed, #f472b6);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
 }
 
+/* animasi gradient */
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* slide */
 .slide {
   width:100vw;
   height:100vh;
@@ -26,6 +37,7 @@ body {
   opacity:0;
   transform:translateX(100%);
   padding:20px;
+  backdrop-filter: blur(10px);
 }
 
 .active {
@@ -33,29 +45,51 @@ body {
   transform:translateX(0);
 }
 
-.slide1 { background:#fdf2f8; color:#333; }
-.slide2 { background:#fde68a; }
-.slide3 { background:#fecaca; }
-.slide4 { background:#c7d2fe; }
-.slide5 { background:#1e1b4b; color:white; }
-
 img {
   width:250px;
   border-radius:20px;
   margin:20px;
 }
 
-h1 { font-size:26px; }
-p { max-width:320px; line-height:1.6; }
+h1 { color:white; }
+p { max-width:320px; line-height:1.6; color:white; }
 
 .btn {
   margin-top:20px;
   padding:10px 20px;
-  background:black;
+  background:#f472b6;
   color:white;
   border:none;
-  border-radius:10px;
+  border-radius:20px;
   cursor:pointer;
+}
+
+/* partikel */
+.particle {
+  position:absolute;
+  width:6px;
+  height:6px;
+  background:rgba(255,255,255,0.7);
+  border-radius:50%;
+  animation: float 10s linear infinite;
+}
+
+@keyframes float {
+  from {transform: translateY(100vh);}
+  to {transform: translateY(-10vh);}
+}
+
+/* hati */
+.heart {
+  position:absolute;
+  bottom:-10px;
+  font-size:20px;
+  animation: up 6s linear infinite;
+}
+
+@keyframes up {
+  from {transform: translateY(0); opacity:1;}
+  to {transform: translateY(-110vh); opacity:0;}
 }
 </style>
 </head>
@@ -63,7 +97,7 @@ p { max-width:320px; line-height:1.6; }
 <body>
 
 <!-- SLIDE 1 -->
-<div class="slide slide1 active">
+<div class="slide active">
   <h1>🎂 Happy Birthday 💖</h1>
   <p>
   Di hari spesial kamu ini, aku cuma ingin kamu tahu satu hal…  
@@ -80,86 +114,51 @@ p { max-width:320px; line-height:1.6; }
 </div>
 
 <!-- SLIDE 2 -->
-<div class="slide slide2">
+<div class="slide">
   <h1>Awal Kita 💕</h1>
   <img src="foto1.jpg">
   <p>
   Aku masih inget gimana awal kita kenal…  
-  semuanya terasa biasa aja, tanpa ekspektasi apa-apa.  
-
-  Tapi makin hari, tanpa aku sadar,  
-  kamu mulai jadi seseorang yang aku tunggu,  
-  yang aku pikirin,  
-  dan yang selalu bikin hari aku terasa lebih ringan.  
-
-  Dari yang awalnya cuma “kenal”,  
-  kamu berubah jadi “berarti” 💕
+  semuanya terasa biasa aja.  
+  Tapi makin hari kamu jadi seseorang yang aku tunggu  
+  dan tanpa sadar jadi berarti banget 💕
   </p>
   <button class="btn" onclick="next()">Next</button>
 </div>
 
 <!-- SLIDE 3 -->
-<div class="slide slide3">
+<div class="slide">
   <h1>Momen Kita 📸</h1>
   <img src="foto2.jpg">
   <p>
-  Setiap momen sama kamu mungkin terlihat sederhana,  
-  tapi buat aku… semuanya punya arti.  
-
-  Cara kamu ngomong,  
-  cara kamu ketawa,  
-  bahkan hal kecil yang mungkin kamu anggap biasa,  
-  itu semua selalu berhasil bikin aku nyaman.  
-
-  Dan jujur…  
-  aku gak butuh momen yang sempurna,  
-  selama itu sama kamu, semuanya udah cukup 💖
+  Setiap momen sama kamu mungkin sederhana,  
+  tapi buat aku semuanya punya arti.  
+  Selama sama kamu… semuanya terasa cukup 💖
   </p>
   <button class="btn" onclick="next()">Next</button>
 </div>
 
 <!-- SLIDE 4 -->
-<div class="slide slide4">
+<div class="slide">
   <h1>Perasaan Aku 💔</h1>
   <img src="foto3.jpg">
   <p>
-  Kalau boleh jujur…  
-  aku takut kehilangan kamu.  
-
-  Bukan karena aku lemah,  
-  tapi karena kamu sudah jadi bagian dari hidup aku.  
-
-  Kamu bukan cuma seseorang yang lewat,  
-  kamu adalah seseorang yang menetap,  
-  yang diam-diam jadi tempat pulang,  
-  dan alasan kenapa aku masih mau bertahan di banyak hal.  
-
-  Dan mungkin aku gak selalu bisa nunjukin semuanya,  
-  tapi percayalah…  
-  perasaan aku ke kamu itu selalu tulus 💔
+  Jujur… aku takut kehilangan kamu.  
+  Karena kamu bukan sekadar orang yang lewat,  
+  tapi seseorang yang sudah jadi bagian hidup aku 💔
   </p>
   <button class="btn" onclick="next()">Next</button>
 </div>
 
 <!-- SLIDE 5 -->
-<div class="slide slide5">
+<div class="slide">
   <h1>Selamat Ulang Tahun Sayang 💖</h1>
   <p>
-  Selamat ulang tahun ya, sayang…  
+  Terima kasih sudah hadir di hidup aku…  
+  kamu adalah alasan aku bahagia.  
 
-  Semoga semua hal baik datang ke kamu,  
-  semoga kamu selalu sehat, selalu bahagia,  
-  dan semua yang kamu impikan bisa satu per satu tercapai.  
-
-  Terima kasih sudah hadir di hidup aku,  
-  terima kasih sudah jadi seseorang yang berarti,  
-  dan terima kasih… karena tanpa kamu sadar,  
-  kamu sudah bikin hidup aku jadi lebih hidup.  
-
-  Kalau aku boleh minta satu hal di hari kamu ini…  
-  aku cuma berharap Tuhan selalu jaga kamu untuk aku,  
-  dan biarin aku tetap ada di samping kamu,  
-  hari ini, besok, dan seterusnya 💖
+  Semoga Tuhan selalu jaga kamu,  
+  dan biarin aku tetap ada di samping kamu 💖
   </p>
   <button class="btn" onclick="restart()">Ulang 💕</button>
 </div>
@@ -180,6 +179,27 @@ function restart(){
   current = 0;
   slides[current].classList.add("active");
 }
+
+/* partikel */
+function createParticle(){
+  const p = document.createElement("div");
+  p.classList.add("particle");
+  p.style.left = Math.random()*100+"vw";
+  document.body.appendChild(p);
+  setTimeout(()=>p.remove(),10000);
+}
+setInterval(createParticle,300);
+
+/* hati */
+function createHeart(){
+  const h = document.createElement("div");
+  h.classList.add("heart");
+  h.innerHTML="❤️";
+  h.style.left=Math.random()*100+"vw";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+}
+setInterval(createHeart,500);
 </script>
 
 </body>
