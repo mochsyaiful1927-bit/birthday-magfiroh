@@ -1,169 +1,127 @@
-```<html id="final-romantic-birthday">
+```html id="slide-premium"
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Happy Birthday Sayang</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #1e1b4b, #312e81);
-      color: #f1f5f9;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-    }
-    .card {
-      position: relative;
-      z-index: 2;
-      background: rgba(30, 41, 59, 0.9);
-      padding: 35px;
-      border-radius: 25px;
-      text-align: center;
-      box-shadow: 0 0 30px rgba(0,0,0,0.7);
-      max-width: 500px;
-      animation: fadeIn 1.5s ease;
-    }
-    h1 {
-      color: #f472b6;
-    }
-    .name {
-      font-size: 22px;
-      font-weight: bold;
-      color: #f9a8d4;
-      margin-bottom: 15px;
-    }
-    p {
-      font-size: 15px;
-      line-height: 1.7;
-      margin-top: 10px;
-    }
-    .btn {
-      margin-top: 20px;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 15px;
-      background: #f472b6;
-      color: white;
-      cursor: pointer;
-      font-weight: bold;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday 💖</title>
 
-    .heart {
-      position: absolute;
-      bottom: -10px;
-      color: #f472b6;
-      font-size: 20px;
-      animation: floatUp 5s linear infinite;
-      opacity: 0.7;
-    }
+<style>
+body {
+  margin:0;
+  font-family:'Segoe UI';
+  overflow:hidden;
+}
 
-    @keyframes floatUp {
-      0% { transform: translateY(0); opacity: 0.7; }
-      100% { transform: translateY(-110vh); opacity: 0; }
-    }
+.slide {
+  width:100vw;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:absolute;
+  transition:1s;
+  opacity:0;
+  transform:translateX(100%);
+}
 
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-  </style>
+.active {
+  opacity:1;
+  transform:translateX(0);
+}
+
+.slide1 { background:#fdf2f8; color:#333; }
+.slide2 { background:#fde68a; }
+.slide3 { background:#fecaca; }
+.slide4 { background:#c7d2fe; }
+.slide5 { background:#1e1b4b; color:white; }
+
+img {
+  width:250px;
+  border-radius:20px;
+  margin:20px;
+}
+
+h1 { font-size:28px; }
+p { max-width:300px; }
+
+.btn {
+  margin-top:20px;
+  padding:10px 20px;
+  background:black;
+  color:white;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+}
+</style>
 </head>
+
 <body>
 
-  <!-- Musik -->
-  <audio autoplay loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-  </audio>
+<!-- SLIDE 1 -->
+<div class="slide slide1 active">
+  <h1>🎂 Happy Birthday 💖</h1>
+  <p>Untuk kamu yang paling spesial...</p>
+  <button class="btn" onclick="next()">Next</button>
+</div>
 
-  <div class="card">
-    <h1>🎂 Happy Birthday Sayang 💖</h1>
-    <div class="name">Magfiroh Izzani Aulia Putri</div>
+<!-- SLIDE 2 -->
+<div class="slide slide2">
+  <h1>Awal Kita 💕</h1>
+  <img src="foto1.jpg">
+  <p>Dari awal kenal kamu... semuanya berubah jadi lebih indah</p>
+  <button class="btn" onclick="next()">Next</button>
+</div>
 
-    <p>
-      Di hari ulang tahun kamu ini, aku cuma ingin bilang satu hal yang mungkin gak akan pernah cukup diungkapkan dengan kata-kata…  
-      aku benar-benar bersyukur kamu hadir di hidup aku.
-    </p>
+<!-- SLIDE 3 -->
+<div class="slide slide3">
+  <h1>Momen Kita 📸</h1>
+  <img src="foto2.jpg">
+  <p>Setiap momen sama kamu selalu berarti buat aku</p>
+  <button class="btn" onclick="next()">Next</button>
+</div>
 
-    <p>
-      Terima kasih sudah jadi seseorang yang selalu ada, yang tanpa sadar selalu bikin aku tenang,  
-      yang kehadirannya sederhana tapi berarti banget buat aku.  
-      Kamu itu bukan cuma orang spesial, tapi kamu sudah jadi bagian penting dalam hidup aku.
-    </p>
+<!-- SLIDE 4 -->
+<div class="slide slide4">
+  <h1>Perasaan Aku 💔</h1>
+  <img src="foto3.jpg">
+  <p>
+    Aku takut kehilangan kamu...  
+    karena kamu terlalu berarti buat aku
+  </p>
+  <button class="btn" onclick="next()">Next</button>
+</div>
 
-    <p>
-      Aku gak tahu ke depan kita akan seperti apa,  
-      tapi yang aku tahu… selama masih ada kamu di sini,  
-      aku akan selalu berusaha jadi yang terbaik untuk kamu.
-    </p>
+<!-- SLIDE 5 -->
+<div class="slide slide5">
+  <h1>Selamat Ulang Tahun Sayang 💖</h1>
+  <p>
+    Terima kasih sudah hadir di hidup aku...  
+    kamu adalah alasan aku bahagia
+  </p>
+  <button class="btn" onclick="restart()">Ulang 💕</button>
+</div>
 
-    <p>
-      Semoga di umur kamu yang sekarang, semua hal baik datang ke kamu.  
-      Semoga kamu selalu diberi kesehatan, kebahagiaan, dan segala hal yang kamu impikan bisa tercapai.  
-    </p>
+<script>
+let current = 0;
+const slides = document.querySelectorAll(".slide");
 
-    <p>
-      Dan kalau suatu hari nanti dunia lagi gak berpihak sama kamu,  
-      kalau kamu capek, kalau kamu ngerasa sendiri…  
-      aku harap kamu ingat satu hal kecil ini — kamu punya aku.
-    </p>
+function next(){
+  slides[current].classList.remove("active");
+  current++;
+  if(current >= slides.length) current = slides.length - 1;
+  slides[current].classList.add("active");
+}
 
-    <p>
-      Aku mungkin bukan yang paling sempurna,  
-      tapi aku selalu punya hati yang tulus buat kamu.  
-      Hati yang selalu milih kamu, bahkan di saat kamu gak sadar.
-    </p>
-
-    <p>
-      Jujur… aku takut kehilangan kamu.  
-      Bukan karena aku lemah, tapi karena kamu terlalu berarti buat aku.  
-      Kamu bukan cuma seseorang yang datang lalu pergi,  
-      kamu adalah bagian yang sudah menetap di hidup aku.
-    </p>
-
-    <p>
-      Dan kalau boleh jujur di hari spesial kamu ini…  
-      aku gak minta banyak,  
-      aku cuma berharap satu hal:  
-      semoga Tuhan selalu jaga kamu untuk aku,  
-      dan jaga aku supaya tetap bisa ada untuk kamu.
-    </p>
-
-    <p>
-      Selamat ulang tahun ya, sayang…  
-      terima kasih sudah hadir dan mengubah hidup aku jadi lebih berarti.  
-      Aku sayang kamu, lebih dari yang bisa aku jelasin 💖
-    </p>
-
-    <button class="btn" onclick="playMusic()">
-      Klik kalau musik belum bunyi 🎶
-    </button>
-  </div>
-
-  <script>
-    function playMusic() {
-      const audio = document.querySelector("audio");
-      audio.play();
-    }
-
-    function createHeart() {
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
-      heart.innerHTML = "❤️";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = (15 + Math.random() * 20) + "px";
-      heart.style.animationDuration = (3 + Math.random() * 3) + "s";
-      document.body.appendChild(heart);
-
-      setTimeout(() => {
-        heart.remove();
-      }, 6000);
-    }
-
-    setInterval(createHeart, 300);
-  </script>
+function restart(){
+  slides[current].classList.remove("active");
+  current = 0;
+  slides[current].classList.add("active");
+}
+</script>
 
 </body>
 </html>
