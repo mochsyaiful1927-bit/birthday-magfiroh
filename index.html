@@ -3,90 +3,101 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday 💖</title>
+<title>For You 💖</title>
 
 <style>
 body {
   margin:0;
   font-family:'Segoe UI';
   overflow:hidden;
-  background: linear-gradient(-45deg, #1e1b4b, #312e81, #7c3aed, #f472b6);
-  background-size: 400% 400%;
-  animation: gradientBG 10s ease infinite;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  color:white;
 }
 
-@keyframes gradientBG {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
+/* bintang */
+.star {
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:white;
+  opacity:0.8;
+  animation: twinkle 2s infinite alternate;
+}
+@keyframes twinkle {
+  from {opacity:0.2;}
+  to {opacity:1;}
 }
 
+/* slide */
 .slide {
   width:100vw;
   height:100vh;
   display:flex;
-  flex-direction:column;
   justify-content:center;
   align-items:center;
-  text-align:center;
   position:absolute;
   transition:1s;
   opacity:0;
-  transform:translateX(100%);
-  padding:20px;
-  backdrop-filter: blur(10px);
+  transform:scale(1.1);
 }
-
 .active {
   opacity:1;
-  transform:translateX(0);
+  transform:scale(1);
 }
 
-img {
-  width:250px;
+/* card */
+.card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  padding:25px;
+  border-radius:25px;
+  text-align:center;
+  box-shadow:0 0 40px rgba(124,58,237,0.3);
+  max-width:350px;
+}
+
+/* gallery */
+.gallery {
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:10px;
+  margin:15px 0;
+}
+.gallery img {
+  width:100%;
+  height:120px;
+  object-fit:cover;
+  border-radius:15px;
+}
+
+/* foto */
+img.single {
+  width:260px;
   border-radius:20px;
-  margin:20px;
+  margin:15px 0;
 }
 
-h1 { color:white; }
-p { max-width:330px; line-height:1.7; color:white; }
+/* teks */
+h1 {
+  font-size:24px;
+  background: linear-gradient(90deg,#a78bfa,#f472b6);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+p {
+  font-size:14px;
+  line-height:1.6;
+}
 
+/* tombol */
 .btn {
-  margin-top:20px;
+  margin-top:15px;
   padding:10px 20px;
-  background:#f472b6;
-  color:white;
+  background:linear-gradient(90deg,#7c3aed,#f472b6);
   border:none;
   border-radius:20px;
+  color:white;
   cursor:pointer;
-}
-
-/* partikel */
-.particle {
-  position:absolute;
-  width:6px;
-  height:6px;
-  background:rgba(255,255,255,0.7);
-  border-radius:50%;
-  animation: float 10s linear infinite;
-}
-
-@keyframes float {
-  from {transform: translateY(100vh);}
-  to {transform: translateY(-10vh);}
-}
-
-/* hati */
-.heart {
-  position:absolute;
-  bottom:-10px;
-  font-size:20px;
-  animation: up 6s linear infinite;
-}
-
-@keyframes up {
-  from {transform: translateY(0); opacity:1;}
-  to {transform: translateY(-110vh); opacity:0;}
 }
 </style>
 </head>
@@ -95,125 +106,100 @@ p { max-width:330px; line-height:1.7; color:white; }
 
 <!-- SLIDE 1 -->
 <div class="slide active">
-  <h1>🎂 Happy Birthday 💖</h1>
-  <p>
-  Di hari spesial kamu ini, aku cuma ingin kamu tahu satu hal…  
-  kehadiran kamu di hidup aku itu bukan sesuatu yang biasa.  
-
-  Dari sekian banyak kemungkinan di dunia ini,  
-  entah kenapa aku bisa dipertemukan sama kamu.  
-  Dan dari semua pertemuan yang pernah aku alami,  
-  kamu adalah yang paling gak pernah aku sesali.  
-
-  Hari ini bukan cuma tentang ulang tahun kamu,  
-  tapi tentang rasa syukur aku…  
-  karena dunia pernah menghadirkan seseorang seperti kamu di hidup aku.  
-
-  Seseorang yang perlahan, tanpa aku sadari,  
-  berubah dari yang awalnya “orang biasa”…  
-  jadi seseorang yang gak bisa aku bayangin kalau harus hilang 💖
-  </p>
-  <button class="btn" onclick="next()">Next</button>
+  <div class="card">
+    <h1>🎂 Happy Birthday</h1>
+    <p>
+    Di hari spesial kamu ini…  
+    aku cuma mau bilang, kehadiran kamu di hidup aku itu bukan hal biasa.  
+    Dari sekian banyak kemungkinan, aku dipertemukan sama kamu…  
+    dan itu jadi salah satu hal terbaik yang pernah aku punya 💖
+    </p>
+    <button class="btn" onclick="next()">Next</button>
+  </div>
 </div>
 
 <!-- SLIDE 2 -->
 <div class="slide">
-  <h1>Awal Kita 💕</h1>
-  <img src="foto1.jpg">
-  <p>
-  Aku masih inget gimana awal kita kenal…  
-  semuanya terasa biasa aja, tanpa ekspektasi apa-apa.  
+  <div class="card">
+    <h1>Awal Kita</h1>
 
-  Gak ada yang istimewa di awal,  
-  tapi semakin hari aku kenal kamu,  
-  semakin aku sadar… kamu bukan orang yang biasa.  
+    <div class="gallery">
+      <img src="foto1.jpg">
+      <img src="foto2.jpg">
+      <img src="foto3.jpg">
+      <img src="foto4.jpg">
+    </div>
 
-  Kamu mulai jadi seseorang yang aku tunggu,  
-  yang aku pikirin tanpa alasan,  
-  dan yang selalu berhasil bikin hari aku terasa lebih ringan.  
+    <p>
+    Dari awal kenal, semuanya terasa biasa aja…  
+    tapi makin lama, kamu jadi seseorang yang selalu aku tunggu.  
+    Dari sekadar kenal… jadi nyaman… lalu jadi berarti 💕
+    </p>
 
-  Dari yang awalnya cuma “kenal”,  
-  kamu berubah jadi “nyaman”…  
-  dan dari “nyaman”, kamu jadi seseorang yang berarti 💕
-  </p>
-  <button class="btn" onclick="next()">Next</button>
+    <button class="btn" onclick="next()">Next</button>
+  </div>
 </div>
 
 <!-- SLIDE 3 -->
 <div class="slide">
-  <h1>Momen Kita 📸</h1>
-  <img src="foto2.jpg">
-  <p>
-  Setiap momen sama kamu mungkin terlihat sederhana,  
-  bahkan mungkin biasa aja kalau dilihat orang lain.  
+  <div class="card">
+    <h1>Momen Kita</h1>
 
-  Tapi buat aku… semuanya punya arti yang gak bisa dijelasin.  
+    <img src="foto5.jpg" class="single">
 
-  Cara kamu ngomong,  
-  cara kamu ketawa,  
-  cara kamu jadi diri kamu sendiri…  
-  itu semua selalu berhasil bikin aku ngerasa nyaman.  
+    <p>
+    Setiap momen sama kamu mungkin sederhana…  
+    tapi buat aku, semuanya punya arti.  
+    Selama itu sama kamu, semuanya terasa cukup 💖
+    </p>
 
-  Aku gak butuh momen yang sempurna,  
-  selama itu sama kamu…  
-  semuanya udah lebih dari cukup buat aku 💖
-  </p>
-  <button class="btn" onclick="next()">Next</button>
+    <button class="btn" onclick="next()">Next</button>
+  </div>
 </div>
 
 <!-- SLIDE 4 -->
 <div class="slide">
-  <h1>Perasaan Aku 💔</h1>
-  <img src="foto3.jpg">
-  <p>
-  Kalau boleh jujur… aku takut kehilangan kamu.  
+  <div class="card">
+    <h1>Perasaan Aku</h1>
 
-  Bukan karena aku lemah,  
-  tapi karena kamu sudah sejauh ini masuk ke hidup aku.  
+    <div class="gallery">
+      <img src="foto6.jpg">
+      <img src="foto7.jpg">
+    </div>
 
-  Kamu bukan cuma seseorang yang datang lalu pergi,  
-  kamu adalah seseorang yang menetap,  
-  yang diam-diam jadi tempat pulang,  
-  dan jadi alasan kenapa aku masih mau bertahan.  
+    <p>
+    Jujur… aku takut kehilangan kamu.  
+    Bukan karena aku lemah, tapi karena kamu sudah jadi bagian hidup aku.  
 
-  Mungkin aku gak selalu bisa nunjukin semuanya,  
-  tapi satu hal yang pasti…  
-  perasaan aku ke kamu itu selalu tulus.  
+    Kalau suatu hari kamu capek…  
+    aku harap kamu ingat satu hal:  
+    kamu punya aku 💔
+    </p>
 
-  Dan kalau suatu hari nanti kamu merasa sendiri…  
-  kamu punya aku 💔
-  </p>
-  <button class="btn" onclick="next()">Next</button>
+    <button class="btn" onclick="next()">Next</button>
+  </div>
 </div>
 
 <!-- SLIDE 5 -->
 <div class="slide">
-  <h1>Selamat Ulang Tahun Sayang 💖</h1>
-  <img src="foto4.jpg">
-  <p>
-  Selamat ulang tahun ya, sayang…  
+  <div class="card">
+    <h1>Selamat Ulang Tahun</h1>
 
-  Hari ini mungkin cuma satu hari dari banyak hari di hidup kamu,  
-  tapi buat aku… ini adalah hari dimana seseorang yang sangat berarti dilahirkan.  
+    <img src="foto8.jpg" class="single">
 
-  Aku gak pernah nyangka aku bisa seberuntung ini,  
-  bisa kenal kamu, bisa dekat sama kamu,  
-  dan bisa punya kamu di hidup aku.  
+    <p>
+    Selamat ulang tahun ya…  
+    terima kasih sudah hadir di hidup aku.  
 
-  Terima kasih sudah hadir,  
-  terima kasih sudah bertahan,  
-  dan terima kasih karena kamu sudah bikin hidup aku lebih berarti.  
+    Semoga semua hal baik datang ke kamu,  
+    dan kalau aku boleh minta satu hal…  
+    aku cuma ingin tetap ada di samping kamu 💖  
 
-  Di umur kamu yang sekarang,  
-  aku cuma berharap semua hal baik datang ke kamu.  
+    Aku sayang kamu.
+    </p>
 
-  Dan kalau aku boleh minta satu hal…  
-  semoga Tuhan selalu jaga kamu untuk aku,  
-  dan biarin aku tetap ada di samping kamu 💖  
-
-  Aku sayang kamu… lebih dari yang bisa aku jelasin 💖
-  </p>
-  <button class="btn" onclick="restart()">Ulang 💕</button>
+    <button class="btn" onclick="restart()">Ulang</button>
+  </div>
 </div>
 
 <script>
@@ -233,26 +219,16 @@ function restart(){
   slides[current].classList.add("active");
 }
 
-/* partikel */
-function createParticle(){
-  const p = document.createElement("div");
-  p.classList.add("particle");
-  p.style.left = Math.random()*100+"vw";
-  document.body.appendChild(p);
-  setTimeout(()=>p.remove(),10000);
+/* bintang */
+function createStar(){
+  const s = document.createElement("div");
+  s.classList.add("star");
+  s.style.left = Math.random()*100+"vw";
+  s.style.top = Math.random()*100+"vh";
+  s.style.animationDuration = (1 + Math.random()*2)+"s";
+  document.body.appendChild(s);
 }
-setInterval(createParticle,300);
-
-/* hati */
-function createHeart(){
-  const h = document.createElement("div");
-  h.classList.add("heart");
-  h.innerHTML="❤️";
-  h.style.left=Math.random()*100+"vw";
-  document.body.appendChild(h);
-  setTimeout(()=>h.remove(),6000);
-}
-setInterval(createHeart,500);
+for(let i=0;i<80;i++){ createStar(); }
 </script>
 
 </body>
